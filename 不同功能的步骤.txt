@@ -1,0 +1,7 @@
+实时天气：发请求 → 等数据 → 转对象 → 取字段 → 塞页面
+发请求：async 声明“异步函数”，因为网络请求要等服务器响应
+             const url = 'https://api.open-meteo.com/v1/forecast?latitude=23.13&longitude=113.26&current_weather=true';
+等数据：const res = await fetch(url);
+转对象：const data = await res.json();--------->.json() 把它转成 JavaScript 对象，方便我们点属性取值
+取字段：const now = data.current_weather;
+塞页面：document.getElementById('weather').innerText = `深圳 当前 ${now.temperature}℃ 风速 ${now.windspeed} km/h`;

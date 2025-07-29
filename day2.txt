@@ -1,0 +1,33 @@
+内部脚本：将JS代码定义在HTML页面中
+1.代码位于<script></script>标签之间
+2.在HTML文档的任何地方，有任何数量的<script>
+3.一般置于<body>元素底部
+<script>
+	alert("Hello javaScript")
+</script>
+
+外部脚本：将JS代码定义在外部JS文件中，然后引入到HTML页面中
+1.外部文件只包含JS代码，不包含<script>标签
+2.<script>标签不能自闭和
+<script src="js/demo.is"></script>
+alert("Hello javaScript")
+
+script函数:
+在<script></script>之间写下function 方法名(){ 方法体 },可以在script中直接调用函数
+
+实现时钟:
+const now = new Date().toLocaleString('zh-CN');
+document.getElementById('clock').innerText = '现在时间：' + now;
+--------->
+.innerText = ...
+把找到的这个元素的可见文字内容（innerText）重新赋值。
+
+appendChild() 方法可向节点的子节点列表的末尾添加新的子节点。
+
+.trim() 去掉前后空格，防止用户只打空格
+
+async 声明“异步函数”，因为网络请求要等服务器响应
+
+await fetch(url)
+------>fetch(url) 向 Open-Meteo 发 HTTP 请求。
+------>await 让代码“停”在这里，等服务器把数据送回来再继续。
