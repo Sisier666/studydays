@@ -1,11 +1,19 @@
-<script setup></script>
+<script setup>
+import Footer from './components/Footer.vue';
+import Header from './components/Header.vue';
+import Profile from './components/Profile.vue';
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <Header title="小鱼的前端简历" ></Header>
+  <Profile
+    avatar="/img/美 (2).jpg"
+    intro="面试官好！我是小鱼，来自广州软件学院，2025 届电子与计算机工程专业。"
+  ></Profile>
+  <Footer email="320349353@qq.com" ></Footer>
+
 </template>
 
-<style scoped></style>
+<style scoped>
+  nav { margin: 0 8px; color: #007; }
+</style>
