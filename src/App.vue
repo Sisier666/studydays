@@ -1,10 +1,17 @@
 <script setup>
+import { useThemeStore } from './stores/theme';
+const theme = useThemeStore();
+if (theme.dark) {
+  document.documentElement.classList.add('dark')
+}
+
 import Footer from './components/Footer.vue';
 import Header from './components/Header.vue';
 import Profile from './components/Profile.vue';
 </script>
 
 <template>
+
   <Header title="小鱼的前端简历" ></Header>
   <Profile
     avatar="/img/美 (2).jpg"

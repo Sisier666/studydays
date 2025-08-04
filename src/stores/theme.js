@@ -1,17 +1,26 @@
-import { defineStore } from "pinia";
+import { defineStore } from 'pinia';
+
+// 读取本地记录
+const getSaved = () => {
+  try {
+    return localStorage.getItem('theme') === 'dark'
+  } catch {
+    return false
+  }
+}
 
 export const useThemeStore = defineStore('theme', {
     state: () => ({
-        dark: JSON.parse(localStorage.getItem('dark') ?? 'false')
+        isDark: getSaved()
     }),
     actions: {
         toggle() {
-            this.dark = !this.dark
-            localStorage.setItem('dark', this.dark)
-            if (this.dark) {
-                document.documentElement.classList.add('dark')
-            } else {
-                document.documentElement.classList.remove('dark')
+            this.isDark = !this.isDark
+            document.documentElement.classList.toggle('dark', this.isDark)
+            try {
+                localStorage.setItem('dark', this.isDark ? 'dark' : 'light')
+            } catch {
+                
             }
         }
     }
